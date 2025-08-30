@@ -1,0 +1,59 @@
+# Linux Shell Scripting: A Project-Based Approach to Learning
+# Justin Alvey
+SSH stands for Secure SHell
+The Network protocol used to connect to Linux
+SSH client not insta,led by default on Windows
+Git includes an SSH client
+
+# In lecture 12, he skipped a step
+#He went fro vagrant init jasonc/centos7
+#straight to 
+vagrant ssh
+#But my machine doesn't allow this.
+#The second step for my machine was:
+vagrant up
+# Then:
+vagrant ssh
+
+# File extension on a shell script is not significant like it is with windows files (.exe)
+# - sharp
+! - bang
+#! - shebang
+
+# File gets passed to bash:
+/bin/bash <FILE_NAE>
+And then bash executes the file
+
+# Comments are not executed. They are just for us humans, to describe our productByCode
+# With the exeception being the first line of a shell script
+
+# Chmod - file permissions
+# read = 4
+# write = 2
+# execute = 1
+#7 is read, write, execute for owner of the file
+#5 is read, execute for group
+#5 is rread, execute for everyone else
+
+# Dot (.) represents "this directory"
+# cd . = same directory
+# cd .. = move to parent directory
+# / is dir separator
+
+#./file.sh is equivalent to the full path:
+#/vagrant/file.sh
+# Permission denied if you do not have execute permission
+# on a file and try to execute it
+
+# Anytime there is a shell built-in, use type
+# No need to specify full path
+type -a echo # type all
+# Find that echo is a shell builtin
+help echo | less
+man uptime # man short for manual or man pages
+# q to exit man or less
+
+# Variables are storage locations for data that have a name
+# Capitalize all variables, this is best practice. 
+
+
