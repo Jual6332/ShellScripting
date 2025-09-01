@@ -57,3 +57,17 @@ man uptime # man short for manual or man pages
 # Capitalize all variables, this is best practice. 
 
 
+# Lecture 13
+type -a if
+if is a shell command
+help if
+semi-colons can be used or newlines to break up the different parts of if statement.
+
+sudo ./luser-demo02.sh 
+Now the script prints that we are root
+
+We are using newer syntax of double brackets for if statements.
+Older syntax was single brackets
+[ is a shell built-in and /usr/bin/[ is a comand on the Linux machine
+
+If something is rquired for a script, check for it. Never assume things are the way you want them to be
