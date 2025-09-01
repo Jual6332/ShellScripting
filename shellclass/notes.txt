@@ -71,3 +71,18 @@ Older syntax was single brackets
 [ is a shell built-in and /usr/bin/[ is a comand on the Linux machine
 
 If something is rquired for a script, check for it. Never assume things are the way you want them to be
+
+# Lecture 14:
+User DRY principle of software
+Don't Repeat Yourself
+ReUse variables so you don't have to add the same hard-coded variable times in the code. once will do, then reuse that variable.
+
+# if a commmand is a shell built-in, you can use the help coand for ore info on the command. Otherwise use man (manpages or manual)
+
+USER_NAME=$(id -un)
+# This syntax is used to capture the output of a command
+# Test if the command succeeded.
+
+
+# ${?} is the result of the ost previously run comand in the script. So if we store the output of a comand in a variable, we can get that result
+# using ${?}. Short-hand
