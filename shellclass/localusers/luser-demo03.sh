@@ -21,8 +21,25 @@ USER_NAME=$(id -un)
 if [[ "${?}" -ne 0 ]]
 then
   echo "The id command did not execute successfully."
+  exit 1
 fi
 
 # you can use a string test conditional.
+USER_NAME_TO_TEST_FOR='vagrant'
+if [[ "${USER_NAME}" = "${USER_NAME_TO_TEST_FOR}" ]]
+then
+  echo "YOur username matches ${USER_NAME_TO_TEST_FOR}"
+else
+  echo "Your username does not match ${USER_NAME_TO_TEST_FOR}"
+  exit 1
+fi
+
+# Comparing strings
+# Double equals sign is for pattern matchin
+# SIngle equals sign is for exact match
+# This is only for bash, javascript, not c++
 
 # Test for != (not equal) for the string.
+
+
+# If you dont specify an exit status, the exit status for the most recently run command will be used for the exit status of your script.
