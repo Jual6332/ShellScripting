@@ -86,3 +86,10 @@ USER_NAME=$(id -un)
 
 # ${?} is the result of the ost previously run comand in the script. So if we store the output of a comand in a variable, we can get that result
 # using ${?}. Short-hand
+
+# Usernames can be longer than 8 characters. When they are longer than 8 characters, they are shortened to dougsta+ (plus icon) in the list of processes
+# Usernames in Linux are case sensitive
+# Can use numbers in username. Cannot use any special characters
+
+# su for switch user
+su - einstein
