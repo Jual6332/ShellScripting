@@ -33,4 +33,15 @@ echo "scale=3;2*$pi*$d/2" | bc # outputs 12.566
 echo "scale=3;$pi*$d/2*$d/2" | bc # outputs 12.566
 # Verified with online calculator: https://www.omnicalculator.com/math/area-of-a-circle
 
+# Double the user input. Multiply user input by 2
+echo "Enter a number to be doubled"
+read inputA
 
+var=$((inputA*2))
+echo "You entered $inputA. $inputA times 2 equals ... "
+echo $var
+
+# How to do the square root of a number 
+echo "Enter a number to be square-rooted"
+read inputB
+echo "scale=0;sqrt($inputB)" | bc
