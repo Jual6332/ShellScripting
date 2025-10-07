@@ -14,3 +14,23 @@ echo "scale=2;$expre" | bc # This outputs 3
 
 # How do I round my math output to 2 decimmal places?
 echo "scale=3;22/7" | bc # This outputs 3.142
+
+# Bc stands for Bash Calculator
+
+# Calculate 100/3 to 3 decimal places
+echo "scale=3;100/3" | bc # This will output 33.333
+
+# Given a circle of dimensions:
+d=4.0 #in
+pi=3.14159265
+
+# Calculate the circumference of a circle
+echo "scale=3;2*$pi*$d/2" | bc # outputs 12.566
+# Verified with online calculator: https://www.omnicalculator.com/math/circumference
+
+# Calculate the area of a circle to 3 decimal places
+#echo "scale=3;pi*d/2*d/2" | bc # outputs 0, missing $s
+echo "scale=3;$pi*$d/2*$d/2" | bc # outputs 12.566
+# Verified with online calculator: https://www.omnicalculator.com/math/area-of-a-circle
+
+
