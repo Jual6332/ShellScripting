@@ -45,3 +45,33 @@ echo $var
 echo "Enter a number to be square-rooted"
 read inputB
 echo "scale=0;sqrt($inputB)" | bc
+
+# Numerical Comparison Logic Operators
+# Example 1:
+x=10
+echo "please enter a number greater than but not equal to 10"
+read y
+
+if [ $y -lt $x ]
+then 
+    echo "The number you entered is less than 10, this is incorrect."
+elif [ $y -eq $x ]
+then 
+    echo "The number you entered is equal than 10, this is incorrect."
+elif [ $y -gt $x ]
+then
+    echo "The number you entered is greater than 10, this is correct."
+fi
+
+# Example 2:
+echo "Enter a number to see if it is even or odd"
+read y
+
+remainder=$(($y%2))
+
+if [ $remainder -eq 0 ]
+then 
+    echo "Even number"
+else
+    echo "Odd number"
+fi
