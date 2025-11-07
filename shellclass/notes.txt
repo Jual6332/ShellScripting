@@ -114,4 +114,16 @@ c stands for number of chars
 head -c1 /etc/passwd
 # Prints first char in file
 
+# Lecture 19:
+Bash requires an interpreter, like Python
+Arguments are passed to a shell script. Variables are used inside the shell script
+Path can change, it is not the same for every user in every system. Keep that in mind
+echo ${PATH}
+which command - shows the full path of (shell) commands.
+Basename - strip directory and suffix from filenames
+dirname - returns the directory path and removes filename
+
+Arguments:
+Inside the script they are parameters, outside they are arguments.
+
 
