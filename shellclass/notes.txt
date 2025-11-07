@@ -93,3 +93,25 @@ USER_NAME=$(id -un)
 
 # su for switch user
 su - einstein
+
+# Lecture X:
+!v to run the most recent command that starts with 'v'
+Bang V
+
+Use the number of nanaoseconds in epoch time (since 1970) to get a harder to crack password
+
+What is a checksum? - dint' explain very well
+
+limitString to limit the number of characters in a string to a specific amount in Impact
+Example: limitString(new_string,string,250) // Limits to 250 chars and creates a new string called new_string with only this many chars
+
+head -n 1 /etc/passwd
+Prints first line of the /etc/passwd file
+Same thing (old style):
+head -1 /etc/passwd
+n stands for number of lines
+c stands for number of chars
+head -c1 /etc/passwd
+# Prints first char in file
+
+
