@@ -10,14 +10,28 @@ then
   exit 1
 fi
 
-# Ask for the user name.
-read -p 'Enter the username for account: ' USER_NAME
+# How many arguments?
+NUMBER_OF_PARAMETERS="${#}"
+echo "You supplied ${NUMBER_OF_PARAMETERS} argument(s) on the command line"
 
-# Ask for the real name.
-read -p 'Enter the name of the person who this account belongs to: ' COMMENT
+# Make sure that at least one argument is supplied.
+if [[ "${NUMBER_OF_PARAMETERS}" -lt 1 ]]
+then
+  echo "Usage: ${0} USER_NAME [USER_NAME]..."
+  exit 1
+fi
 
-# Ask for the password.
-read -p 'Enter the password to use for the account: ' PASS
+# STore username in USER_NAE variable
+USER_NAME=${1}
+if [[ "${NUMBER_OF_PARAMETERS}" -eq 2 ]]
+then
+  COMMENT=${2}
+else
+  COMMENT=""
+fi
+
+# Automatically generates a password for the user:
+PASS=$(date +%s%N | sha256sum | head -c48)
 
 # Create the user.
 useradd -c "${COMMENT}" -m ${USER_NAME}
