@@ -126,4 +126,24 @@ dirname - returns the directory path and removes filename
 Arguments:
 Inside the script they are parameters, outside they are arguments.
 
+# Lecture 23:
+There are 3 types of standard i/o
+1. Standard input - from keyboard, read command
+2. Standard output - displayed to the screen by default
+3. Standard error - displayed to the screen by default
+
+Use a pipe when you want to take output from a commmand
+as input to another command.
+But you can use redirection to redirect contaents of a file into a command
+If file doesn't exist for redirection, file is created
+If file exists already, it is overwritten
+
+To append, use two >> symbols
+
+echo "another-line" >> password.txt
+
+
+
+
+
 
