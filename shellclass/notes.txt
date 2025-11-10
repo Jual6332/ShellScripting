@@ -179,4 +179,12 @@ STDERR is not passed using pipes by default
 Can be done
 head -n1 /etc/passwd /etc/hosts /fakefile 2>&1 | cat -n
 (WORKS)
+Alternative syntax:
+head -n1 /etc/passwd /etc/hosts /fakefile |& cat -n
+
+# The NULL device throws away anything sent to it
+# Also known as the BitBucket
+# if you don't care about your output, forward to NULL device
+
+head -n1 /etc/passwd /etc/hosts /fakefile &> /dev/null
 

@@ -22,3 +22,48 @@ echo "${RANDOM} ${RANDOM}" >> ${FILE}
 echo
 echo "Contents of ${FILE}"
 cat ${FILE}
+
+# Redirect STDIN to a program, using FD 0.
+read LINE 0< ${FILE}
+echo
+echo "LINE contains: ${LINE}"
+
+# Redirect STDOUT to a file using FD 1, overwriting that file.
+head -n3 /etc/passwd 1> ${FILE}
+echo
+echo "Contents of ${FILE}:"
+cat ${FILE}
+
+# Redirect STDERR to a file using FD 2.
+ERR_FILE="/tmp/data.err"
+head -n3 /etc/passwd /fakefile 2> ${ERR_FILE}
+
+# Redirect STDOUT and STDERR to a file.
+head -n3 /etc/passwd /fakefile &> ${FILE}
+echo
+echo "COntents of ${FILE}:"
+cat ${FILE}
+
+# Redirect STDOUT and STDERR through a pipe.
+head -n3 /etc/passwd /fakefile |& cat -n
+
+# Send output to standard error
+echo "This is STDERR!" >&2
+
+# Discard STDOUT
+echo
+echo "Discarding STDOUT:"
+head -n3 /etc/passwd /fakefile > /dev/null
+
+# Discard STDERR
+echo
+echo "Discarding STDERR:"
+head -n3 /etc/passwd /fakefile 2> /dev/null
+
+# Discard BOTH to Null Device
+echo
+echo "Discarding both STDOUT and STDERR:"
+head -n3 /etc/passwd /fakefile &> /dev/null
+
+# CLean up
+rm ${FILE} ${ERR_FILE} &> /dev/null
