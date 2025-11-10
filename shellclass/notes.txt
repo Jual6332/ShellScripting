@@ -158,3 +158,25 @@ If you dont supply a file descriptor, 1 is assummed when using '>'
 
 We can send multiple fileNames to head command:
 head -n1 /etc/passwd /etc/hosts
+
+To redirect standard error, use 2> 
+head -n1 /etc/passwd /etc/hosts /fakefile 2> head.err
+
+For redirecting both satdnadr output and standard error:
+head -n1 /etc/passwd /etc/hosts /fakefile 1> head.out 2> head.err
+(WORKS)
+
+# Sending STDOUT and STDERR to the same place:
+head -n1 /etc/passwd /etc/hosts /fakefile > head.both 2>&1
+
+# New syntax added to Bash for redirection
+# Old way was confusing
+head -n1 /etc/passwd /etc/hosts /fakefile &> head.both
+# Append to file:
+head -n1 /etc/passwd /etc/hosts /fakefile &>> head.both
+
+STDERR is not passed using pipes by default
+Can be done
+head -n1 /etc/passwd /etc/hosts /fakefile 2>&1 | cat -n
+(WORKS)
+
