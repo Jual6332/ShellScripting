@@ -142,8 +142,19 @@ To append, use two >> symbols
 
 echo "another-line" >> password.txt
 
+Lecture 24:
+File descriptors - pointers to sources of data
+keyboards, files, screens
+FD 0 - STDIN
+FD 1 - STDOUT
+FD 2 - STDERR
 
+If you dont supply a file descriptor, 0 is assummed when using '<'
+No space between 0 and redirection operator '<'
+read X 0< /etc/centos-release (correct)
+read X 0 < /etc/centos-release (incorrect)
 
+If you dont supply a file descriptor, 1 is assummed when using '>'
 
-
-
+We can send multiple fileNames to head command:
+head -n1 /etc/passwd /etc/hosts
