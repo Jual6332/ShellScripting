@@ -185,6 +185,19 @@ head -n1 /etc/passwd /etc/hosts /fakefile |& cat -n
 # The NULL device throws away anything sent to it
 # Also known as the BitBucket
 # if you don't care about your output, forward to NULL device
-
 head -n1 /etc/passwd /etc/hosts /fakefile &> /dev/null
+
+# What are swap files in VIM?
+When editing a file using vim, a swap file is created that stores undo and change history.
+
+Vim creates these swap files for two purposes:
+1. The swap file is created to avoid multiple instances of vim editing the same file.
+2. Vim creates the swap files to recover the changes if something crashes.
+
+If you have a file open in one terminal. Then open another terminal
+and try to edit the file again. vim will give you the message that a swap file exists already. 
+You either need to close the other session, or select E and Edit the file anyway.
+
+Source: https://www.baeldung.com/linux/vim-swap-files
+
 

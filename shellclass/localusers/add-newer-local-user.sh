@@ -11,7 +11,7 @@ fi
 
 # How many arguments?
 NUMBER_OF_PARAMETERS="${#}"
-echo "You supplied ${NUMBER_OF_PARAMETERS} argument(s) on the command line"
+#echo "You supplied ${NUMBER_OF_PARAMETERS} argument(s) on the command line"
 
 # Make sure that at least one argument is supplied.
 if [[ "${NUMBER_OF_PARAMETERS}" -lt 1 ]]
@@ -30,7 +30,7 @@ COMMMENT="${@}"
 PASS=$(date +%s%N | sha256sum | head -c48)
 
 # Create the user.
-useradd -c "${COMMENT}" -m ${USER_NAME}
+useradd -c "${COMMENT}" -m ${USER_NAME} &> /dev/null
 # -m supplies a home directory for the user
 
 # Check to see if the useradd command succeeded.
@@ -41,7 +41,7 @@ then
 fi
 
 # Set the password for the user.
-echo ${PASS} | passwd --stdin ${USER_NAME} 
+echo ${PASS} | passwd --stdin ${USER_NAME} &> /dev/null
 
 # Check to see if the passwd command succeeded.
 if [[ "${?}" -ne 0 ]]
@@ -51,10 +51,9 @@ then
 fi
 
 # Force password change on first login.
-passwd -e ${USER_NAME}
+passwd -e ${USER_NAME} &> /dev/null
 
 # Display the username, password, and the host where the user was created.
-echo
 echo "username:"
 echo "${USER_NAME}"
 echo
