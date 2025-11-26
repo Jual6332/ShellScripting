@@ -203,3 +203,17 @@ Source: https://www.baeldung.com/linux/vim-swap-files
 # Lecture 29:
 # Use shell builtins whereever possible because
 # Shell builtins make scripts more portable
+
+# Arithmetic
+NUM=$(( 6 / 4 )) 
+echo ${NUM} = 1
+# To use decimals, use external program
+# Yu can do floating point math with bc
+
+echo '6 / 4' | bc -l
+returns 1.5000000000000
+
+# Lecturer doesn't recomend using awk to do Arithmetic
+awk 'BEGIN {print 6/4}'
+returns 1.5
+

@@ -75,3 +75,19 @@ then
 else
     echo "Odd number"
 fi
+
+# Add two numbers together
+DICEA='3'
+DICEB='6'
+TOTAL=$(( DICEA + DICEB ))
+echo ${TOTAL}
+
+# Increment a value
+NUM='1'
+(( NUM++ ))
+echo ${NUM}
+
+# Decrement a value
+NUM='1'
+(( NUM-- ))
+echo ${NUM}
