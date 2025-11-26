@@ -91,3 +91,24 @@ echo ${NUM}
 NUM='1'
 (( NUM-- ))
 echo ${NUM}
+
+# Add a value of 5
+(( NUM += 5 ))
+echo ${NUM}
+
+NUM=$(( NUM += 5 ))
+echo ${NUM}
+
+# Use the let command
+let NUM='2+3'
+echo ${NUM}
+
+let NUM++
+echo ${NUM}
+
+# expr syntax
+expr 1 + 1
+Returns 2
+NUM=$(expr 2+3)
+echo ${NUM}
+returns 5

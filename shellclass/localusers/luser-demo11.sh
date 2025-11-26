@@ -47,6 +47,18 @@ do
    esac
 done
 
+# Inspect OPTIIND
+echo "OPTIND: ${OPTIND}"
+
+# Remove the options while leaving the remaining arguments.
+shift "$(( OPTIND - 1 ))"
+
+if [[ "${#}" -gt 0 ]]
+then 
+  usage
+fi
+
+
 log 'Generating a password.'
 
 PASSWORD=$(date +%s%N${RANDOM}${RANDOM} | sha256sum | head -c${LENGTH})
