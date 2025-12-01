@@ -122,6 +122,30 @@ find / -name userdel 2>/dev/null # Error messages
 sudo find / -name userdel
 # Flashcards: What happens when you send data to /dev/null?
 
-# Recommendations: Searching the enitre file system starting at the root is not recommended
+# Recommendations: Don't Search the entire file system starting at the root
 
+# Say we want to add a new file
+touch userdel
+# After adding a new file, it wont be found by locate right away.
+# You need to update the db by running:
+sudo updatedb
+# Then look for newly created file
+locate userdel
+# It will appear in the list now. It didnt before.
+
+# When we use touch commmand and the file doesnt exist, it creates a new file
+# WHen the file does exist, the touch command updates the date on the file
+
+# Grep - searches for patterns in a file
+
+# Userdel is a system administration comand. these are found in /usr/sbin
+
+# Commmands that normal users can be run are found in /usr/bin
+
+# Find searches recursively
+
+# Flash Cards:
+1. WHat does Grep do in Bash?
+2. What folder are system administrator commands found in.
+3. 
 
