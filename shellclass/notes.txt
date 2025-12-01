@@ -213,7 +213,7 @@ echo ${NUM} = 1
 echo '6 / 4' | bc -l
 returns 1.5000000000000
 
-# Lecturer doesn't recomend using awk to do Arithmetic
+# Recoendations: Lecturer doesn't recomend using awk to do Arithmetic
 awk 'BEGIN {print 6/4}'
 returns 1.5
 

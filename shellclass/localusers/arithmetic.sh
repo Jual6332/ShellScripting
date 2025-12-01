@@ -112,3 +112,16 @@ Returns 2
 NUM=$(expr 2+3)
 echo ${NUM}
 returns 5
+
+# Use locate to find different shell builtins, files, and commmands
+locate .bashrc
+!! - most recently executed command
+# find command
+find /usr/sbin/ -name userdel
+find / -name userdel 2>/dev/null # Error messages 
+sudo find / -name userdel
+# Flashcards: What happens when you send data to /dev/null?
+
+# Recommendations: Searching the enitre file system starting at the root is not recommended
+
+
