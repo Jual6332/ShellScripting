@@ -260,4 +260,19 @@ locate userdel
 # By default, when a user gets removed by userdel, their files stay on the machine.
 # To delete their /home dir, use -r flag
 
+# Tar saves many files together into an archive
+tar flags:
+-c Create
+-f filename
+-v verbose
+-tf List all files in archive
+
+gzip command compresses the original file and appends a .gz to the end of the filename
+gunzip to decompress or uncompress the archive
+
+# Recommendation: Convention for people to use .tgz for compressed archive 
+
+# If a file in an archive has an empty file. That file will overwrite the file in the 
+# current dir
+# Tar relies on file permissions like any other command does
 
