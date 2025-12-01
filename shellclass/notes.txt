@@ -276,3 +276,9 @@ gunzip to decompress or uncompress the archive
 # current dir
 # Tar relies on file permissions like any other command does
 
+# Locking an user account with passwd does not prevent an user from logging in with a ssh key
+Use chage instead
+
+# Another option: Set shell to nologin shell for user
+cat /etc/shells
+sudo usermod -s /sbin/nologin philapp
