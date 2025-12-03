@@ -1,22 +1,24 @@
 #!/bin/bash
+#
+# The script disables, deletes, and/or archives users on the local system.
 
 # Must be executed with superuser (root) privileges.
 if [[ "${UID}" -ne 0 ]]
 then
-  echo "Please run this script with root privileges." >&2
+  echo "Please run this script with sudo or as root." >&2
   exit 1
 fi
 
 usage(){
-  echo "Usage: ${0} [USER][-d][-r][-a]" >&2
-  echo '  USER Username of user to be deleted.'
-  echo '  -d   Deletes accounts instead of disabling them.'
-  echo '  -r   Removes the home directory associated with the account(s).'
-  echo '  -a   Creates an archive of the home directory associated with the account.'
+  echo "Usage: ${0} [-dra] USER [USERN]..." >&2
+  echo 'Disabled a local Linux account.' >&2
+  echo '  -d   Deletes accounts instead of disabling them.'>&2
+  echo '  -r   Removes the home directory associated with the account(s).'>&2
+  echo '  -a   Creates an archive of the home directory associated with the account.'>&2
   exit 1
 }
 
-while getopts dr:a OPTION
+while getopts dra OPTION
 do
   case ${OPTION} in
     d)
@@ -45,7 +47,6 @@ shift "$(( OPTIND - 1 ))"
 if [[ "${#}" -gt 0 ]]
 then
   usage
-  exit 1
 fi
 
 # Append a special character if requested to do so.
