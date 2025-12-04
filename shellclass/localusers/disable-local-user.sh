@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# The script disables, deletes, and/or archives users on the local system.
+# This script disables, deletes, and/or archives users on the local system.
 
 # Must be executed with superuser (root) privileges.
 if [[ "${UID}" -ne 0 ]]
@@ -41,7 +41,8 @@ do
 done
 
 # Inspect OPTIIND
-echo "OPTIND: ${OPTIND}"
+# Debugging purposes:
+#echo "OPTIND: ${OPTIND}"
 
 # Remove the options while leaving the remaining arguments.
 shift "$(( OPTIND - 1 ))"
@@ -60,7 +61,7 @@ do
   USERID=$(id -un ${USERNAME})
   if [[ "${USERID}" -lt 1000 ]]
   then
-    echo "Refusing to remove the ${USERNAME} account with the UID ${USERID.}" >&2
+    echo "Refusing to remove the ${USERNAME} account with the UID of ${USERID}." >&2 
     exit 1
   fi
   
@@ -95,21 +96,41 @@ do
       exit 1
     fi
    fi
-
-
-# Append a special character if requested to do so.
-if [[ ${DELETE_ACCOUNT} = 'true' ]]
-then
-  if [[ ${REMOVE_HOME_DIR} = 'true' ]]
+  
+  if [[ "${DELETE_ACCOUNT}" = 'true' ]]
   then
-    userdel ${1} -r
+    # Delete the user
+    if [[ ${REMOVE_HOME_DIR} = 'true' ]]
+    then
+      userdel -r ${USERNAME}
+    else
+      userdel ${USERNAME}
+    fi
+    
+    # CHeck to see if the userdel command succeeded.
+    # We don't want to tell the user the account was deleted when it wasn't.
+    if [[ "${?}" -ne 0 ]]
+    then
+      echo "The account ${USERNAME} was NOT deleted." >&2
+      exit 1
+    else
+      echo "The account ${USERNAME} WAS deleted."
+    fi
   else
-    userdel ${1}
+    chage -E 0 ${USERNAME}
+    # CHeck to see if the chage command succeeded.
+    # We don't want to tell the user the account was disabled when it wasn't.
+    if [[ "${?}" -ne 0 ]]
+    then
+      echo "The account ${USERNAME} was NOT disabled." >&2
+      exit 1
+    else
+      echo "The account ${USERNAME} WAS disabled."
+    fi
   fi
-fi
+done
+
 
 exit 0
 
-# Things I need to work on:
-#1. What if a user inputs multiple usernames. Code wont work
-#2. When correct arguments are added, the usage statement is still printed. This needs to be fixed.
+
