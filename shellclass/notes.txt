@@ -282,3 +282,25 @@ Use chage instead
 # Another option: Set shell to nologin shell for user
 cat /etc/shells
 sudo usermod -s /sbin/nologin philapp
+
+Section 7: Lecture 37
+# Cut command cuts out sections from input it receives
+# Then displays those sections to standard output
+# You can extract columns from a csv fikle for example
+
+WHen using a range of values to cut, make sure not to use spaces in the range:
+4-7 instead of 4 - 7
+Cut wont rearrange an order if you specify a diff order in the range
+cut -c 1,3,5 /etc/passwd is equal to
+cut -c 5,3,1 /etc/passwd
+
+You dont have to supply a file for cut, standard input works well
+
+-e flag allows us to display \ characters like \t for tab
+echo -e 'one\ttwo\tthree' | cut -f 1
+echo 'one,two,three' | cut -d ',' -f 3
+-d for delimiter, -f for field
+
+Suggestion: Always quote your delimiter
+
+cut -d ':' -f 1,3 /etc/passwd
