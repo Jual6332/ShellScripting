@@ -304,3 +304,9 @@ echo 'one,two,three' | cut -d ',' -f 3
 Suggestion: Always quote your delimiter
 
 cut -d ':' -f 1,3 /etc/passwd
+
+# How to start vagrant and resume project
+1. vagrant up
+2. vagrant ssh
+3. cd /vagrant
+
